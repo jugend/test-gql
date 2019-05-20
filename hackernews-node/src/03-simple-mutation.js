@@ -21,7 +21,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    post: (parent, args) => {
+    createLink: (parent, args) => {
       const link = {
         id: `link-${idCount++}`,
         description: args.description,
