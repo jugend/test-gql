@@ -6,10 +6,12 @@
   "scripts": {
     "getting-started": "nodemon src/01-getting-started.js",
     "simple-query": "nodemon src/02-simple-query.js",
-    "simple-mutation": "nodemon src/03-simple-mutation.js"
+    "simple-mutation": "nodemon src/03-simple-mutation.js",
+    "test-prisma": "node scripts/test-prisma"
   },
   "dependencies": {
-    "graphql-yoga": "^1.17.4"
+    "graphql-yoga": "^1.17.4",
+    "prisma-client-lib": "^1.33.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"

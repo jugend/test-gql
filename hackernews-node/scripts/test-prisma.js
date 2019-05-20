@@ -13,5 +13,5 @@ async function main() {
   console.log('>> All links', allLinks)
 }
 
-main.catch(e => console.error(e))
+main().catch(e => console.error(e))
 
