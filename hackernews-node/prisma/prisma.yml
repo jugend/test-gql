@@ -1,4 +1,5 @@
 # The HTTP endpoint for your Prisma API
+# Admin:: https://eu1.prisma.sh/herryanto-siatono-02ecda/hackernews-node/dev/_admin
 #endpoint: ''
 endpoint: https://eu1.prisma.sh/herryanto-siatono-02ecda/hackernews-node/dev
 

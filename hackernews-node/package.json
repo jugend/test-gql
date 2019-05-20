@@ -7,6 +7,7 @@
     "getting-started": "nodemon src/01-getting-started.js",
     "simple-query": "nodemon src/02-simple-query.js",
     "simple-mutation": "nodemon src/03-simple-mutation.js",
+    "prisma-integration": "nodemon src/04-prisma-integration.js",
     "test-prisma": "node scripts/test-prisma"
   },
   "dependencies": {
