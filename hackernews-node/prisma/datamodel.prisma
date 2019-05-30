@@ -5,3 +5,11 @@ type Link {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
+
+type User {
+  id: ID! @id
+  name: String!
+  email: String! @unique
+  password: String!
+  links: [Link!]!
+}

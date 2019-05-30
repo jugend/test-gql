@@ -11,6 +11,7 @@
     "test-prisma": "node scripts/test-prisma"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "graphql-yoga": "^1.17.4",
     "prisma-client-lib": "^1.33.0"
   },
