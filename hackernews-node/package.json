@@ -8,7 +8,7 @@
     "simple-query": "nodemon src/02-simple-query.js",
     "simple-mutation": "nodemon src/03-simple-mutation.js",
     "prisma-integration": "nodemon src/04-prisma-integration.js",
-    "test-prisma": "node scripts/test-prisma"
+    "test-prisma": "NODE_TLS_REJECT_UNAUTHORIZED=0 nr test-prisma"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
