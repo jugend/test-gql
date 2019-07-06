@@ -1,3 +1,29 @@
+/**
+ * To test, visit: http://localhost:4000/
+ *
+ * Enter:
+ *
+ * Single quote is not allowed for string
+ *
+ * mutation {
+ *  createLink(
+ *    url: "www.test.info"
+ *    description: "url description"
+ *  ) {
+ *    id
+ *  }
+ * }
+ *
+ * Response:
+ *
+ * {
+ *   "data": {
+ *     "post": {
+ *       "id": "link-1"
+ *     }
+ *   }
+ * }
+ */
 const { GraphQLServer } = require('graphql-yoga')
 
 let links = {
@@ -8,7 +34,7 @@ let links = {
   },
 }
 
-let idCount = links.length
+let idCount = Object.values(links).length
 
 const resolvers = {
   Query: {
@@ -22,12 +48,13 @@ const resolvers = {
   },
   Mutation: {
     createLink: (parent, args) => {
+      const id = `link-${idCount++}`
       const link = {
-        id: `link-${idCount++}`,
+        id,
         description: args.description,
         url: args.url,
       }
-      links.push(link)
+      links[id] = link
       return link
     },
     updateLink: (parent, args) => {
@@ -49,7 +76,7 @@ const resolvers = {
 }
 
 const server = new GraphQLServer({
-  typeDefs: './src/schema.graphql',
+  typeDefs: './src/schema.simple-mutation.graphql',
   resolvers,
 })
 

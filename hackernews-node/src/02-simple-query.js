@@ -1,3 +1,17 @@
+/**
+ * To test, visit: http://localhost:4000/
+ *
+ * Enter:
+ *
+ * query {
+ *  info,
+ *  feed {
+ *    id,
+ *    description,
+ *    url
+ *  }
+ * }
+ */
 const { GraphQLServer } = require('graphql-yoga')
 
 const typeDefs = `
