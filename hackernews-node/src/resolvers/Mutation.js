@@ -1,4 +1,4 @@
-const bcyprt = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { APP_SECRET, getUserId } = require('../utils')
 
@@ -16,14 +16,16 @@ async function signup(parent, args, context, info) {
 }
 
 async function login(parent, args, context, info) {
-  const user = context.prisma.user({ email: args.email })
+  const user = await context.prisma.user({ email: args.email })
   if (!user) {
     throw new Error('No such user found')
   }
+
   const valid = await bcrypt.compare(args.password, user.password)
   if (!valid) {
     throw new Error('Invalid password')
   }
+
   const token = jwt.sign({ userId: user.id }, APP_SECRET)
   return {
     token,
@@ -31,32 +33,41 @@ async function login(parent, args, context, info) {
   }
 }
 
-async function createLink: (parent, args, context) => {
+async function createLink(parent, args, context) {
+  const userId = getUserId(context)
   return context.prisma.createLink({
     url: args.url,
     description: args.description,
+    postedBy: {
+      connect: {
+        id: userId,
+      },
+    },
   })
 }
 
-async function updateLink: (parent, args) => {
-  const link = links[args.id]
-  if (link) {
-    Object.keys(args).forEach(key => {
-      link[key] = args[key]
-    })
-    return link
-  }
-  return null
-}
-
-async function deleteLink(parent, argss) {
-  const link = links[args.id]
-
-  delete links[args.id]
-  return link
-}
+// async function updateLink(parent, args) {
+//   const link = links[args.id]
+//   if (link) {
+//     Object.keys(args).forEach(key => {
+//       link[key] = args[key]
+//     })
+//     return link
+//   }
+//   return null
+// }
+//
+// async function deleteLink(parent, argss) {
+//   const link = links[args.id]
+//
+//   delete links[args.id]
+//   return link
+// }
 
 module.exports = {
   signup,
   login,
+  createLink,
+  // updateLink,
+  // deleteLink,
 }

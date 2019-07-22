@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const APP_SECREET = 'gql-is-awesome'
+const APP_SECRET = 'myqql-is-super-awesome'
 
 function getUserId(context) {
   const Authorization = context.request.get('Authorization')

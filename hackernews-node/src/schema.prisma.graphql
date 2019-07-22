@@ -1,7 +1,6 @@
 type Query {
   info: String!
-  links: [Link!]!
-  link(id: ID!): Link
+  feed: [Link!]!
 }
 
 type Mutation {
@@ -24,3 +23,9 @@ type AuthPayload {
   user: User
 }
 
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  links: [Link!]!
+}
