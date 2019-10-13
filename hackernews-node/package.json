@@ -1,5 +1,4 @@
 {
-
   "name": "hackernews-node",
   "version": "1.0.0",
   "main": "index.js",
@@ -15,7 +14,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "graphql-yoga": "^1.17.4",
-    "prisma-client-lib": "^1.34.0"
+    "prisma-client-lib": "^1.34.5"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
