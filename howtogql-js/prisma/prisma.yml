@@ -1,5 +1,7 @@
 # The HTTP endpoint for your Prisma API
-endpoint: ''
+# endpoint: ''
+# endpoint: https://eu1.prisma.sh/howtogql-js/dev
+endpoint: https://eu1.prisma.sh/herryanto-siatono-02ecda/howtogql-js/dev
 
 # Points to the file that contains your datamodel
 datamodel: datamodel.prisma
